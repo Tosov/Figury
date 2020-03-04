@@ -74,7 +74,7 @@ namespace UnitTestProject1
             var t = new Trojkat(a, b, c);
 
             //Assert
-            Assert.AreEqual(wynik, t.Obwod);
+            Assert.AreEqual(wynik, t.Obwod, 0.01);
         }
 
         

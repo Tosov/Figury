@@ -18,7 +18,12 @@ namespace FiguryLibrary
 
         public override double Surface => 4 * base.Surface;
 
-        public new double Perimeter => throw new NotSupportedException("sphere nie ma obwodu");
+        public new double Perimeter => NotSupportedException("sphere nie ma obwodu");
+
+        private double NotSupportedException(string v)
+        {
+            throw new NotImplementedException();
+        }
 
         public new Sphere Scale(double factor)
         {

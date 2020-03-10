@@ -7,7 +7,7 @@ namespace FiguryLibrary
     /// <summary>
     /// Trojkat w wersji immutable
     /// </summary>
-    public class Triangle : Figure
+    public class Triangle : Figure, IMeasurable2D
     {
         public double A { get; private set; } // A jest read-only
         public double B { get; private set; }
@@ -32,6 +32,15 @@ namespace FiguryLibrary
         }
 
         public double Perimeter => A + B + C;
+
+        public double Surface
+        {
+            get
+            {
+                var p = 0.5 * Perimeter;
+                var s = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            }
+        }
 
         public Triangle Scale( double factor )
         {

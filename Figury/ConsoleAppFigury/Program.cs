@@ -19,7 +19,39 @@ namespace ConsoleAppFigury
             var s = new Sphere(10);
             Console.WriteLine(s);
             Console.WriteLine( s.Surface );
-            Console.WriteLine( s.Perimeter );
+            //Console.WriteLine( s.Perimeter );
+
+            var c = new Circle(1);
+            var t1 = new Triangle(3, 4, 5);
+            var s1 = new Sphere(2);
+
+            List<Figure> lista;
+            lista = new List<Figure>(1000);
+            lista.Add(t);
+            lista.Add(s);
+            lista.Add(c);
+            lista.Add(t1);
+            lista.Add(s1);
+            lista.Add(new Circle(4));
+
+            foreach( var f in lista )
+            {
+                Console.WriteLine(f);
+
+            }
+
+            Console.WriteLine("--------------------------");
+            var total = 0.0;
+            foreach(var f  in lista)
+            {
+                if(f is IMeasurable2D)
+                {
+                    total += ((IMeasurable2D)f).Surface;
+                    Console.WriteLine(f);
+                }
+                
+            }
+            Console.WriteLine($"sumaryczne pole = {total}");
         }
         static void Main2()
         {
@@ -63,7 +95,7 @@ namespace ConsoleAppFigury
             Console.WriteLine(t1.Pole);
 
             Console.WriteLine("========================");
-            var t2 = new Trojkat(3, 4, 5);
+            _ = new Trojkat(3, 4, 5);
             Console.WriteLine(t2);
             Console.WriteLine(t2.A);
             t2.B = 100;
